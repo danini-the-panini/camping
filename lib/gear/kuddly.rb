@@ -31,7 +31,7 @@ module Gear
       # required for compliance reasons
       def setup(app, *a, &block) end
 
-      def kdl_error_message(kdl_string="",error_message="", error=nil)
+      def kdl_error_message(kdl_string="", error_message="", error=nil)
         # parse error message to get line number and column:
         m = error_message.match( /\((\d)+:(\d)\)/ )
 
@@ -79,7 +79,7 @@ module Gear
         end
 
         begin
-          kdl_doc = KDL.parse_document(kdl_string)
+          kdl_doc = KDL.parse(kdl_string)
         rescue => error
           warn "#{error}"
           # parse error message to get line number and column:
