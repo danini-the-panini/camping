@@ -80,6 +80,7 @@ module Gear
 
         begin
           kdl_doc = KDL.parse(kdl_string)
+          warn("Config file #{config_file} appears to using KDL v1 syntax, consider updating it to use KDL v2") if kdl_doc.version == 1
         rescue => error
           warn "#{error}"
           # parse error message to get line number and column:
